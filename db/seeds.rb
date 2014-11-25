@@ -1,6 +1,7 @@
 User.destroy_all
 Person.destroy_all
 Location.destroy_all
+Assignment.destroy_all
 
 User.create!(
   name: "Some User",
@@ -44,6 +45,21 @@ end
     })
 end
 
+5.times do
+  role = Faker::Name.title
+  Assignment.create!({
+    role: role
+    })
+end
+
+20.times do
+  role = Faker::Name.title
+  Assignment.create!({
+    role: role,
+    location_id: rand(20),
+    person_id: rand(20)
+  })
+end
 
 ["Northeast", "Midwest", "Mountain West", "Northwest", "Southwest", "Deep south", "Texas"].each do |name|
   Location.create!(name: name)
