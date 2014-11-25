@@ -1,0 +1,24 @@
+<h1><%= @person.full_name %></h1>
+
+<h2>Assignments</h2>
+<%= link_to "+ Add Location", new_person_assignment_path(@person), class: "pull-right" %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Role</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @person.assignments.each do |assignment| %>
+    <tr>
+      <td><%= assignment.location.name %></td>
+      <td><%= assignment.role %></td>
+      <td><%= link_to "Edit", edit_person_assignment_path(@person, assignment) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Edit Person", edit_person_path(@person) %>

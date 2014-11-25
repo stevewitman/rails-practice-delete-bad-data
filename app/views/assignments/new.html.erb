@@ -1,0 +1,28 @@
+<h1>Add <%= @person.full_name %> to a Location</h1>
+
+<% if @assignment.errors.any? %>
+    <h3 class="errors">Assignment could not be created</h3>
+        <ul class="errors">
+          <% @assignment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    <% end %>
+
+<%= form_for [@person, @assignment] do |f| %>
+
+  <div class="form-row">
+    <%= f.label :location %>
+    <%= f.collection_select(:location_id, Location.all, :id, :name, {}, {}) %>
+  </div>
+
+  <div class="form-row">
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+  </div>
+
+  <div class="form-row">
+    <%= f.submit %>
+  </div>
+
+<% end %>

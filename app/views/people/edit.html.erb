@@ -1,0 +1,34 @@
+<h1>Add a Staff Member</h1>
+
+<% if @person.errors.any? %>
+    <h3 class="errors">Person could not be updated</h3>
+        <ul class="errors">
+          <% @person.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+
+<% end %>
+
+<%= form_for @person do |f| %>
+
+  <div class="form-row">
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true, placeholder: "i.e. Dr." %>
+  </div>
+
+  <div class="form-row">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="form-row">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="form-row">
+    <%= f.submit %>
+  </div>
+
+<% end %>
