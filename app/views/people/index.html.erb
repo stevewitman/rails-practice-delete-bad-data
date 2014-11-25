@@ -1,10 +1,11 @@
-<%= link_to "New Person", new_person_path, class: "pull-right" %>
+<%= link_to "Add Person", new_person_path, class: "pull-right" %>
 <h1>Staff</h1>
 
 <table class="table">
   <thead>
   <tr>
     <th>Name</th>
+    <th>Locations</th>
   </tr>
   </thead>
   <tbody>
@@ -12,6 +13,9 @@
     <tr>
       <td>
         <%= link_to "#{person.title} #{person.first_name} #{person.last_name}", person_path(person)  %>
+      </td>
+      <td>
+        <%= link_to person.assignments.count, person_path(person) %>
       </td>
     </tr>
   <% end %>
