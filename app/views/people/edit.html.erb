@@ -1,6 +1,4 @@
 <h1>Add a Staff Member</h1>
-<div>
-
 
 <% if @person.errors.any? %>
         <ul>
@@ -8,8 +6,8 @@
             <li><%= message %></li>
           <% end %>
         </ul>
+  
     <% end %>
-</div>
 
 <%= form_for @person do |f| %>
 
